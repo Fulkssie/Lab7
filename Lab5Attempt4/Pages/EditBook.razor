@@ -1,0 +1,59 @@
+﻿@page "/editbook/{bookId:int}"
+@using Lab5Attempt4.Services
+@using Lab5Attempt4.Models
+@inject LibraryService LibraryService
+@inject NavigationManager NavigationManager
+
+<h3>Edit Book</h3>
+
+@if (book != null)
+{
+    <EditForm Model="book" OnValidSubmit="SaveBook">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <InputText id="title" class="form-control" @bind-Value="book.Title" />
+        </div>
+
+        <div class="form-group">
+            <label for="author">Author:</label>
+            <InputText id="author" class="form-control" @bind-Value="book.Author" />
+        </div>
+
+        <div class="form-group">
+            <label for="isbn">ISBN:</label>
+            <InputText id="isbn" class="form-control" @bind-Value="book.ISBN" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-secondary" @onclick="CancelEdit">Cancel</button>
+    </EditForm>
+}
+else
+{
+    <p>Loading book details...</p>
+}
+
+@code {
+    [Parameter] public int bookId { get; set; } 
+    private Book book;
+
+    protected override void OnInitialized()
+    {
+        book = LibraryService.GetBookById(bookId);
+    }
+
+    private void SaveBook()
+    {
+        LibraryService.UpdateBook(book);
+
+        NavigationManager.NavigateTo("/managebooks");
+    }
+
+    private void CancelEdit()
+    {
+        NavigationManager.NavigateTo("/managebooks");
+    }
+}

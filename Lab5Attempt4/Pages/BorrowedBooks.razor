@@ -1,0 +1,50 @@
+﻿@page "/borrowedbooks"
+@using Lab5Attempt4.Services
+@using Lab5Attempt4.Models
+@inject LibraryService LibraryService
+@inject NavigationManager NavigationManager
+@inject NavigationManager NavManager
+
+<h3>Borrowed Books</h3>
+
+<button type="button" class="btn btn-secondary" @onclick="GoHome">Home</button>
+
+@if (borrowedBooks == null)
+{
+    <p>Loading...</p>
+}
+else if (!borrowedBooks.Any())
+{
+    <p>No borrowed books found for this user.</p>
+}
+else
+{
+    <ul>
+        @foreach (var book in borrowedBooks)
+        {
+            <li>@book.Title by @book.Author</li>
+        }
+    </ul>
+}
+
+@code {
+    private List<Book> borrowedBooks;
+    private int userId;
+
+    private void GoHome()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+
+    protected override void OnInitialized()
+    {
+        var uri = NavManager.ToAbsoluteUri(NavManager.Uri);
+        var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
+        if (int.TryParse(query.Get("userId"), out int parsedUserId))
+        {
+            userId = parsedUserId;
+            borrowedBooks = LibraryService.GetBorrowedBooksByUser(userId);
+            Console.WriteLine($"Parsed userId = {userId}");
+        }
+    }
+}

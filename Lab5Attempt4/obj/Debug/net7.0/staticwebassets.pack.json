@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Metal\\ServerSide2\\Lab5Attempt4\\Lab5Attempt4\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Lab5Attempt4.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.Lab5Attempt4.props",
+      "PackagePath": "build\\Lab5Attempt4.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.Lab5Attempt4.props",
+      "PackagePath": "buildMultiTargeting\\Lab5Attempt4.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.Lab5Attempt4.props",
+      "PackagePath": "buildTransitive\\Lab5Attempt4.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

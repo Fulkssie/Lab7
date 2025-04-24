@@ -1,0 +1,56 @@
+﻿@page "/borrowbook"
+@using Lab5Attempt4.Services
+@using Lab5Attempt4.Models
+@inject LibraryService LibraryService
+@inject NavigationManager NavigationManager
+
+<h3>Borrow Book</h3>
+
+@if (books != null && books.Any())
+{
+    <div class="form-group">
+        <label for="bookId">Select a Book:</label>
+        <select id="bookId" class="form-control" @bind="selectedBookId">
+            <option value="0">-- Select a Book --</option>
+            @foreach (var book in books)
+            {
+                <option value="@book.Id">@book.Title by @book.Author</option>
+            }
+        </select>
+    </div>
+
+    @if (selectedBookId > 0)
+    {
+        <div class="form-group">
+            <label for="userId">Enter Your User ID:</label>
+            <input type="number" class="form-control" @bind="userId" placeholder="Your User ID" />
+        </div>
+
+        <button class="btn btn-primary" @onclick="Borrow">Borrow</button>
+    }
+}
+
+@code {
+    private List<Book> books;
+    private int selectedBookId = 0;
+    private int userId;
+
+    protected override void OnInitialized()
+    {
+        books = LibraryService.GetBooks();
+    }
+
+    private void Borrow()
+    {
+        if (selectedBookId > 0 && userId > 0)
+        {
+            LibraryService.BorrowBook(selectedBookId, userId);
+
+            NavigationManager.NavigateTo("/borrowedbooks?userId=" + userId);
+        }
+        else
+        {
+            Console.WriteLine("Please select a valid book and enter a valid User ID.");
+        }
+    }
+}

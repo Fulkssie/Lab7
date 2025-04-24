@@ -1,0 +1,75 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Lab5Attempt4
+build_property.RootNamespace = Lab5Attempt4
+build_property.ProjectDir = C:\Users\Metal\ServerSide2\Lab5Attempt4\Lab5Attempt4\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Metal\ServerSide2\Lab5Attempt4\Lab5Attempt4
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Metal/ServerSide2/Lab5Attempt4/Lab5Attempt4/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Metal/ServerSide2/Lab5Attempt4/Lab5Attempt4/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Metal/ServerSide2/Lab5Attempt4/Lab5Attempt4/Pages/AddBook.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQm9vay5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Metal/ServerSide2/Lab5Attempt4/Lab5Attempt4/Pages/AddUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkVXNlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Metal/ServerSide2/Lab5Attempt4/Lab5Attempt4/Pages/BorrowBook.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9ycm93Qm9vay5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Metal/ServerSide2/Lab5Attempt4/Lab5Attempt4/Pages/BorrowedBooks.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9ycm93ZWRCb29rcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Metal/ServerSide2/Lab5Attempt4/Lab5Attempt4/Pages/EditBook.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdEJvb2sucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Metal/ServerSide2/Lab5Attempt4/Lab5Attempt4/Pages/EditUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFVzZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Metal/ServerSide2/Lab5Attempt4/Lab5Attempt4/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Metal/ServerSide2/Lab5Attempt4/Lab5Attempt4/Pages/ManageBooks.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlQm9va3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Metal/ServerSide2/Lab5Attempt4/Lab5Attempt4/Pages/ManageUsers.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlVXNlcnMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Metal/ServerSide2/Lab5Attempt4/Lab5Attempt4/Pages/ReturnBook.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmV0dXJuQm9vay5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Metal/ServerSide2/Lab5Attempt4/Lab5Attempt4/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Metal/ServerSide2/Lab5Attempt4/Lab5Attempt4/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

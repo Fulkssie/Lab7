@@ -1,0 +1,58 @@
+﻿@page "/returnbook"
+@using Lab5Attempt4.Services
+@using Lab5Attempt4.Models
+@inject LibraryService LibraryService
+@inject NavigationManager NavigationManager
+
+<h3>Return Book</h3>
+
+<div>
+    <label for="userId">User ID:</label>
+    <input id="userId" @bind="userId" type="number" />
+</div>
+
+<div>
+    <label for="bookId">Book ID:</label>
+    <input id="bookId" @bind="bookId" type="number" />
+</div>
+
+<button @onclick="ReturnSelectedBook">Return Book</button>
+<button type="button" class="btn btn-secondary" @onclick="GoHome">Home</button>
+
+@if (!string.IsNullOrEmpty(message))
+{
+    <p>@message</p>
+}
+
+@code {
+    private int userId;
+    private int bookId;
+    private string message;
+
+    private void GoHome()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+
+    private void ReturnSelectedBook()
+    {
+        if (userId <= 0 || bookId <= 0)
+        {
+            message = "Please provide valid User ID and Book ID.";
+            return;
+        }
+
+        var userBooks = LibraryService.GetBorrowedBooksByUser(userId);
+        var bookToReturn = userBooks.FirstOrDefault(b => b.Id == bookId);
+
+        if (bookToReturn == null)
+        {
+            message = $"User with ID {userId} has not borrowed the book with ID {bookId}.";
+            return;
+        }
+
+        LibraryService.ReturnBook(userId, bookId);
+
+        message = $"Book '{bookToReturn.Title}' with ID {bookId} has been successfully returned by user {userId}.";
+    }
+}

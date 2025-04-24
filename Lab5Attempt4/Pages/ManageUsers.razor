@@ -1,0 +1,53 @@
+﻿@page "/manageusers"
+@using Lab5Attempt4.Services
+@using Lab5Attempt4.Models
+@inject LibraryService LibraryService
+@inject NavigationManager NavigationManager
+
+<h3>ManageUsers</h3>
+
+<button class="btn btn-primary" @onclick="AddUser">Add User</button>
+<button type="button" class="btn btn-secondary" @onclick="GoHome">Home</button>
+
+<h4>Users List</h4>
+
+<ul>
+    @foreach (var user in users)
+    {
+        <li>
+            @user.Name (Email: @user.Email)
+            <button class="btn btn-warning" @onclick="() => EditUser(user.Id)">Edit</button>
+            <button class="btn btn-danger" @onclick="() => DeleteUser(user.Id)">Delete</button>
+        </li>
+    }
+</ul>
+
+@code {
+    private List<User> users;
+
+    private void GoHome()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+
+    protected override void OnInitialized()
+    {
+        users = LibraryService.GetUsers();
+    }
+
+    private void AddUser()
+    {
+        NavigationManager.NavigateTo("/adduser");
+    }
+
+    private void EditUser(int userId)
+    {
+        NavigationManager.NavigateTo($"/edituser/{userId}");
+    }
+
+    private void DeleteUser(int userId)
+    {
+        LibraryService.DeleteUser(userId);
+        users = LibraryService.GetUsers();
+    }
+}

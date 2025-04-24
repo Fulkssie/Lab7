@@ -1,0 +1,35 @@
+﻿@page "/adduser"
+@using Lab5Attempt4.Services
+@using Lab5Attempt4.Models
+@inject LibraryService LibraryService
+@inject NavigationManager NavigationManager
+
+<h3>Add a New User</h3>
+
+<EditForm Model="@user" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <InputText id="name" class="form-control" @bind-Value="user.Name" />
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <InputText id="email" class="form-control" @bind-Value="user.Email" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add User</button>
+</EditForm>
+
+@code {
+    private User user = new User();
+
+    private void HandleValidSubmit()
+    {
+        LibraryService.AddUser(user);
+
+        NavigationManager.NavigateTo("/manageusers");
+    }
+}

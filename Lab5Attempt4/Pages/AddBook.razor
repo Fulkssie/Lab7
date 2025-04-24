@@ -1,0 +1,40 @@
+﻿@page "/addbook"
+@using Lab5Attempt4.Services
+@using Lab5Attempt4.Models
+@inject LibraryService LibraryService
+@inject NavigationManager NavigationManager
+
+<h3>Add a New Book</h3>
+
+<EditForm Model="@book" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="title">Title</label>
+        <InputText id="title" class="form-control" @bind-Value="book.Title" />
+    </div>
+
+    <div class="form-group">
+        <label for="author">Author</label>
+        <InputText id="author" class="form-control" @bind-Value="book.Author" />
+    </div>
+
+    <div class="form-group">
+        <label for="isbn">ISBN</label>
+        <InputText id="isbn" class="form-control" @bind-Value="book.ISBN" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Book</button>
+</EditForm>
+
+@code {
+    private Book book = new Book();
+
+    private void HandleValidSubmit()
+    {
+        LibraryService.AddBook(book);
+
+        NavigationManager.NavigateTo("/managebooks");
+    }
+}

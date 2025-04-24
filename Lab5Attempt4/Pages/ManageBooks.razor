@@ -1,0 +1,52 @@
+﻿@page "/managebooks"
+@using Lab5Attempt4.Services
+@using Lab5Attempt4.Models
+@inject LibraryService LibraryService
+@inject NavigationManager NavigationManager
+
+<h3>ManageBooks</h3>
+
+<button class="btn btn-primary" @onclick="AddBook">Add Book</button>
+<button type="button" class="btn btn-secondary" @onclick="GoHome">Home</button>
+
+    <h4>Books List</h4>
+    <ul>
+        @foreach (var book in books)
+    {
+        <li>
+            @book.Title by @book.Author (ISBN: @book.ISBN)
+            <button class="btn btn-warning" @onclick="() => EditBook(book.Id)">Edit</button>
+            <button class="btn btn-danger" @onclick="() => DeleteBook(book.Id)">Delete</button>
+        </li>
+        }
+    </ul>
+
+    @code {
+        private List<Book> books;
+
+        private void GoHome()
+        {
+            NavigationManager.NavigateTo("/");
+        }
+
+        protected override void OnInitialized()
+        {
+            books = LibraryService.GetBooks();
+        }
+
+        private void AddBook()
+        {
+            NavigationManager.NavigateTo("/addbook");
+        }
+
+        private void EditBook(int bookId)
+        {
+            NavigationManager.NavigateTo($"/editbook/{bookId}");
+        }
+
+        private void DeleteBook(int bookId)
+        {
+            LibraryService.DeleteBook(bookId);
+            books = LibraryService.GetBooks();
+        }
+    }
